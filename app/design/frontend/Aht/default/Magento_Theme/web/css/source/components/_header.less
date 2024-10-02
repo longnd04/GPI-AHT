@@ -1,6 +1,6 @@
 .page-wrapper {
     .page-header {
-        background-color: white;
+        background-color: @white;
 
         p {
             padding: 0;
@@ -76,10 +76,6 @@
                                 font-weight: 600;
                             }
                         }
-
-                        &:hover {
-                            cursor: pointer;
-                        }
                     }
 
                     .header-group-icon {
@@ -120,7 +116,7 @@
                         content: '';
                         width: 1px;
                         height: 16px;
-                        background-color: #ffffff;
+                        background-color: @white;
                         top: 50%;
                         right: 0;
                         transform: translateY(-50%);
@@ -150,7 +146,7 @@
                         .action.showcart::before {
                             content: '';
                             background: url('../images/cart.svg') no-repeat;
-                            color: white;
+                            color: @white;
                             background-size: 24px 24px;
                             width: 24px;
                             height: 24px;
@@ -167,7 +163,7 @@
 
                             a {
                                 padding: 7px 12px;
-                                border: 1px white solid;
+                                border: 1px @white solid;
                                 border-radius: 8px;
                                 font-weight: 600;
                             }
@@ -179,7 +175,7 @@
                         content: '';
                         width: 1px;
                         height: 16px;
-                        background-color: #ffffff;
+                        background-color: @white;
                         top: 50%;
                         right: 0;
                         transform: translateY(-50%);
@@ -190,7 +186,7 @@
                         content: '';
                         width: 1px;
                         height: 16px;
-                        background-color: #ffffff;
+                        background-color: @white;
                         top: 50%;
                         left: 0;
                         transform: translateY(-50%);
@@ -262,8 +258,8 @@
                 padding: 12px 15px;
                 border-radius: 8px;
                 outline: none;
-                border: 1px solid #c6c8ca;
-                color: #5f6365;
+                border: 1px solid @neutral-300;
+                color: @neutral-600;
                 height: unset;
                 outline: none;
 
