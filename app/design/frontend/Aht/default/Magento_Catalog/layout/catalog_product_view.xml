@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="js/dropdown.js"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <referenceContainer name="product.info.main">
+                <block class="Magento\Catalog\Block\Product\View" name="product.info.detail.custom" template="Magento_Catalog::product/view/detail_custom.phtml" before="product.info.price"/>
+                <block class="Magento\Catalog\Block\Product\View" name="product.info.warehouse.custom" template="Magento_Catalog::product/view/warehouse_custom.phtml" after="product.info.price"/>
+                <block class="Magento\Catalog\Block\Product\View" name="product.info.size.custom" template="Magento_Catalog::product/view/size_custom.phtml" after="product.info.warehouse.custom"/>
+            </referenceContainer>
+            <container htmlTag="div" name="product.container.main" htmlClass="product-container-main" after="product.info.main">
+                <container name="product.container.left" htmlTag="div" htmlClass="product-container-left"/>
+                <container name="product.container.right" htmlTag="div" htmlClass="product-container-right"/>
+            </container>
+            <container name="featute.product.block" htmlTag="div" htmlClass="feature-product">
+                <block class="Magento\Cms\Block\Block" name="feature.product" after="product.container.main">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">feature-product</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+    <move element="product.info.overview" destination="product.info.form.options" before="product.info.options.wrapper.bottom"/>
+    <move element="product.info.description" destination="product.container.left"/>
+    <move element="product.attributes.only.pagebuilder" destination="product.container.left"/>
+    <move element="content.aside" destination="product.container.right"/>
+</page>

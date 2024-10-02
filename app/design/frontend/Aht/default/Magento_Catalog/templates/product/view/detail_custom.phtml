@@ -1,0 +1,17 @@
+<?php
+$_item = $block->getProduct();
+?>
+
+<div class="detail-content">
+    <div class="product-attribute">
+        <div class="product-attribute-item">
+            <?= $escaper->escapeHtml('Brand: ') ?> <span> <?= $escaper->escapeHtml($_item->getData('brand')) ?>:</span>
+        </div>
+        <div class="product-attribute-item">
+            <?= $escaper->escapeHtml('Fabrikage Number: ') ?> <span> <?= $escaper->escapeHtml($_item->getData('fabrikage_number')) ?>:</span>
+        </div>
+        <div class="product-attribute-item">
+            <?= $escaper->escapeHtml('EAN Code: ') ?> <span> <?= $escaper->escapeHtml($_item->getData('ean_code')) ?>:</span>
+        </div>
+    </div>
+</div>

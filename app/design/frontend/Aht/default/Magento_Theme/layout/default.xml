@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="js/header.js"/>
+        <script src="js/footer.js"/>
+    </head>
+    <body>
+        <referenceBlock name="header" remove="true" />
+        <referenceBlock name="footer_links" remove="true"/>
+        <referenceContainer name="header.container">
+            <container name="header.top.container" htmlTag="div" htmlClass="header-top-container" before="-"/>
+
+            <referenceContainer name="header.panel.wrapper">
+                <container name="header.panel.left" before="-">
+                    <block class="Magento\Cms\Block\Block" name="header.top.info">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">header top info</argument>
+                        </arguments>
+                    </block>
+                </container>
+            </referenceContainer>
+            <referenceContainer name="header.panel" label="Page Header Panel" htmlTag="div" htmlClass="panel header">
+                <block class="Magento\Cms\Block\Block" name="header.top.contact" before='-'>
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">header_top_contact</argument>
+                    </arguments>
+                </block>
+            </referenceContainer>
+            <referenceContainer name="header.panel" label="Page Header Panel" htmlTag="div" htmlClass="panel header">
+                <block class="Magento\Cms\Block\Block" name="header.top.group.icon" before='minicart'>
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">group-icon</argument>
+                    </arguments>
+                </block>
+            </referenceContainer>
+            <referenceContainer name="header-wrapper" label="Page Header" htmlTag="div" htmlClass="header content">
+                <block class="Magento\Cms\Block\Block" name="header.nav">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">header-nav</argument>
+                    </arguments>
+                </block>
+            </referenceContainer>
+        </referenceContainer>
+        <referenceContainer name="footer-container">
+            <referenceContainer name="footer" label="Page Footer" htmlTag="div" htmlClass="footer content">
+                <container name="footer.info.container" htmlTag="div" htmlClass="footer info">
+                    <block class="Magento\Cms\Block\Block" name="footer.info" after="form.subscribe">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">footer-info</argument>
+                        </arguments>
+                    </block>
+                </container>
+                <container name="footer.logo.container" htmlTag="div" htmlClass="footer logo">
+                    <block class="Magento\Cms\Block\Block" name="footer.logo" after="footer.info">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">footer-logo</argument>
+                        </arguments>
+                    </block>
+                </container>
+            </referenceContainer>
+        </referenceContainer>
+    </body>
+    <move element="minicart" destination="header.panel"/>
+    <move element="footer.info.container" destination="footer" after="form.subscribe"/>
+    <move element="footer.logo.container" destination="footer" after="footer.info"/>
+    <move element="navigation.sections" destination="header.container" after="header.nav" />
+    <move element="header.toggle-nav" destination="header.nav" after="-" />
+    <move element="header.panel.wrapper" destination="header.top.container" before="-" />
+</page>

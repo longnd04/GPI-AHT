@@ -1,0 +1,26 @@
+<?php
+$_item = $block->getProduct();
+?>
+<div class="size-content">
+    <?php if ($_item->getCustomAttributes()): ?>
+        <div class="product-attribute">
+            <?php foreach ($_item->getCustomAttributes() as $attribute): ?>
+                <?php
+                $attributeCode = $attribute->getAttributeCode();
+                if ($attributeCode == 'size'): ?>
+                    <div class="product-attribute-item">
+                        <?= $escaper->escapeHtml($attributeCode) ?>:
+                        <?php
+                        $values = explode(',', $attribute->getValue());
+                        $labels = [];
+                        foreach ($values as $value) {
+                            $labels[] = $_item->getResource()->getAttribute($attributeCode)->getFrontend()->getOption($value);
+                        }
+                        ?>
+                        <span><?= $escaper->escapeHtml(implode(', ', $labels)) ?></span>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+</div>
